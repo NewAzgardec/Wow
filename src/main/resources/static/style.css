@@ -1,0 +1,11 @@
+body{
+    margin: 15px;
+}
+.text-my-own-color {
+    color: #663300 !important;
+}
+.styleForMessage{
+    .width: 50%;
+    .white-space: pre-wrap;
+    .word-break: break-word;
+}
