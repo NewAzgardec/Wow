@@ -1,12 +1,14 @@
 package com.example.wow;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -17,6 +19,9 @@ import java.util.stream.Collectors;
 public class UserController {
     @Autowired
     private UserRepo userRepo;
+    @Qualifier("messageRepository")
+    @Autowired
+    private MessageRepository messageRep;
 
     @GetMapping
     public String userList(Model model) {
@@ -54,6 +59,16 @@ public class UserController {
         }
 
         userRepo.save(user);
+
+        return "redirect:/user";
+    }
+
+    @RequestMapping(value = "/id/{id}",method = RequestMethod.GET)
+    public String messageRemoveForm(@PathVariable Integer id) {
+        List<Message> m = messageRep.findByAuthor(userRepo.findById(Long.valueOf(id)).get());
+        for(Message mes: m){
+        messageRep.delete(mes);}
+        userRepo.deleteById(Long.valueOf(id));
 
         return "redirect:/user";
     }

@@ -77,7 +77,7 @@
                 </td>
             </tr>
         <#else>
-            empty
+            There are no posts.
         </#list>
         </tbody>
     </table>

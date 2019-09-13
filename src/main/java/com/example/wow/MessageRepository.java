@@ -12,6 +12,6 @@ public interface MessageRepository extends CrudRepository<Message, Long> {
 
     List<Message> deleteById(int id);
 
-    Message findById(int id);
+    List<Message> findByAuthor(User i);
 
 }

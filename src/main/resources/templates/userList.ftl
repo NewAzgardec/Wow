@@ -16,7 +16,7 @@
     <tr>
         <td>${user.username}</td>
         <td><#list user.roles as role>${role}<#sep>, </#list></td>
-        <td><a class="text-my-own-color" href="/user/${user.id}">edit</a></td>
+        <td><a class="text-my-own-color" href="/user/${user.id}">edit</a> / <a class="text-my-own-color" href="/user/id/${user.id}">delete</a></td>
     </tr>
     </#list>
     </tbody>

@@ -5,7 +5,8 @@ body{
     color: #663300 !important;
 }
 .styleForMessage{
-    .width: 50%;
-    .white-space: pre-wrap;
-    .word-break: break-word;
+    width: 50%;
+}
+td {
+ word-break: break-word;
 }
