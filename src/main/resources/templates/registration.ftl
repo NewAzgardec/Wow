@@ -2,7 +2,8 @@
 <#import "parts/login.ftl" as l>
 
 <@c.page>
-<h3 class="mb-3">Create new account</h3>
-${message!}
-<@l.login "/registration" true/>
+    <h3 class="mb-3">Create new account</h3>
+    <@l.login "/registration" true/>
+    <div class="text-danger">
+        ${message!}</div>
 </@c.page>

@@ -17,6 +17,6 @@ public class UserService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("No user found with username: " + s);
         }
-        return userRepo.findByUsername(s);
+        return user;
     }
 }

@@ -26,8 +26,8 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <form method="post" class="form-inline">
-                    <input type="text" name="text" class="form-control" placeholder="Enter your message"/>
-                    <input type="text" name="tag" class="form-control ml-2" placeholder="Tag">
+                    <input required type="text" name="text" class="form-control" placeholder="Enter your message"/>
+                    <input required type="text" name="tag" class="form-control ml-2" placeholder="Tag">
                     <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                     <button type="submit" class="btn btn-outline-danger ml-2">Add</button>
                 </form>
@@ -59,12 +59,10 @@
                         </a>
                     <#else>-
                     </#if>
-
-
                 </td>
             </tr>
         <#else>
-            There are no posts.
+            <div class="text-danger mb-2">There are no posts.</div>
         </#list>
         </tbody>
     </table>
