@@ -22,6 +22,9 @@ public class UserController {
     @Qualifier("messageRepository")
     @Autowired
     private MessageRepository messageRep;
+    @Qualifier("tagRepository")
+    @Autowired
+    private TagRepo tagRepo;
 
     @GetMapping
     public String userList(Model model) {
@@ -63,11 +66,16 @@ public class UserController {
         return "redirect:/user";
     }
 
-    @RequestMapping(value = "/id/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     public String messageRemoveForm(@PathVariable Integer id) {
         List<Message> m = messageRep.findByAuthor(userRepo.findById(Long.valueOf(id)).get());
-        for(Message mes: m){
-        messageRep.delete(mes);}
+        for (Message mes : m) {
+            messageRep.delete(mes);
+        }
+        List<Tag> t = tagRepo.findByAuthor(userRepo.findById(Long.valueOf(id)).get());
+        for (Tag tag : t) {
+            tagRepo.delete(tag);
+        }
         userRepo.deleteById(Long.valueOf(id));
 
         return "redirect:/user";
