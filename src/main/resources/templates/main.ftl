@@ -3,33 +3,23 @@
 <#include "parts/security.ftl">
 
 <@c.page>
-<#--    <div>Сообщения</div>-->
     <div class="form-row">
         <div class="form-group col-md-6">
+<#--            <form method="get" action="/" class="form-inline">-->
+<#--                <input type="text" name="filter" class="form-control" value="${filter!""}" placeholder="Search tag">-->
+<#--                <button type="submit" class="btn btn btn-outline-danger ml-2">Search</button>-->
+<#--            </form>-->
+
             <form method="get" action="/" class="form-inline">
-                <input type="text" name="filter" class="form-control" value="${filter!""}" placeholder="Search tag">
+            <select class="custom-select col-md-2" name="filter">
+                <option value="0">All</option>
+              <#if tags??><#list tags as m>
+                    <option value="${m.id}">${m.tag}</option>
+                </#list></#if>
+            </select>
                 <button type="submit" class="btn btn btn-outline-danger ml-2">Search</button>
             </form>
 
-
-<#--            <select class="custom-select col-md-2">-->
-<#--                <option value="0">All</option>-->
-<#--               <#list messages as m>-->
-<#--                    <option value="${m.id}">${m.tag}</option>-->
-<#--                </#list>-->
-<#--            </select>-->
-
-
-
-<#--            <form action="search">-->
-<#--                <select class="custom-select col-md-2" id="inputGroupSelect06">-->
-<#--                    <#if users??>-->
-<#--                        <#list users as user>-->
-<#--                            <option value="${user.id}">lol</option>-->
-<#--                        </#list>-->
-<#--                    </#if>-->
-<#--                </select>-->
-<#--            </form>-->
         </div>
     </div>
     <div>
@@ -46,17 +36,14 @@
     </div>
 
     <table class="table table-hover">
-        <#--        <#list messages as m>-->
         <thead>
-        <tr>
-            <#--            <th>#</th>-->
+        <tr class="table-danger">
             <th class="styleForMessage">Text</th>
             <th style="width: 20%">Tag</th>
             <th style="width: 20%">User</th>
             <th style="width: 10%">Options</th>
         </tr>
         </thead>
-        <#--        style="background: #F5DEB3"-->
         <tbody>
         <#list messages as m>
             <tr>

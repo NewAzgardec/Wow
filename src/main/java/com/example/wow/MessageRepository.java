@@ -6,11 +6,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository("messageRepository")
-public interface MessageRepository extends CrudRepository<Message, Long> {
+public interface MessageRepository extends CrudRepository<Message, Integer> {
 
     List<Message> findByTag(String tag);
-
-    List<Message> deleteById(int id);
 
     List<Message> findByAuthor(User i);
 

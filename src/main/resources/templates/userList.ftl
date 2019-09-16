@@ -5,7 +5,7 @@
 
 <table class="table table-hover mt-3">
     <thead>
-    <tr>
+    <tr class="table-danger">
         <th style="width: 50%">Name</th>
         <th style="width: 30%">Role</th>
         <th style="width: 20%">Options</th>

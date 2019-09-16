@@ -20,10 +20,3 @@
         <button class="btn btn btn-danger" type="submit">Sign Out</button>
     </form>
 </#macro>
-
-<#--<#macro delete>-->
-<#--    <form action="/delete/${message.id}" method="post">-->
-<#--        <input type="hidden" name="_csrf" value="${_csrf.token}" />-->
-<#--        <button class="btn btn btn-danger" type="submit">Delete</button>-->
-<#--    </form>-->
-<#--</#macro>-->
