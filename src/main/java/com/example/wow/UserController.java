@@ -55,9 +55,9 @@ public class UserController {
 
         user.getRoles().clear();
 
-        for (String key : form.keySet()) {
-            if (roles.contains(key)) {
-                user.getRoles().add(Role.valueOf(key));
+        for (Map.Entry<String, String> key : form.entrySet()) {
+            if (roles.contains(key.getValue())) {
+                user.getRoles().add(Role.valueOf(key.getValue()));
             }
         }
 

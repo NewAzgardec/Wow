@@ -1,5 +1,7 @@
 body{
     margin: 15px;
+    background: rgb(238,174,177);
+    background: radial-gradient(circle, rgba(238,174,177,1) 0%, rgba(255,255,255,1) 100%);
 }
 .text-my-own-color {
     color: #663300 !important;
@@ -11,5 +13,43 @@ td {
  word-break: break-word;
 }
 select [value="0"] {
-    background-color: rgba(100, 100, 100, 0.3);
+    background-color:  #EEAEB1;
+}
+
+.myform {
+    padding:30px;
+    border-radius:3px;
+    margin:50px auto;
+    width:50%;
+    text-align: center;
+    align-content: center;
+    border-top:6px solid #6c1e2e;
+
+}
+
+.rabs input[type="radio"] {
+    display: none;
+    border-radius: 5px;
+}
+
+.rabs label {
+    color: #999;
+    display: inline-block;
+    font-size: 16px;
+    margin: 18px;
+    padding: 6px 12px;
+    cursor:pointer;
+    -moz-box-shadow: #ccc 0 0px 1px;
+    -webkit-box-shadow: #ccc 0 0px 1px;
+    box-shadow: #ccc 0 0px 1px;
+}
+.rabs input[type="radio"]:checked + label {
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 9px #6c1e2e;
+    -moz-box-shadow: 0px 0px 9px #6c1e2e;
+    -ms-box-shadow: 0px 0px 9px #6c1e2e;
+    -o-box-shadow: 0px 0px 9px #6c1e2e;
+    box-shadow: 0px 0px 9px #6c1e2e;
 }
