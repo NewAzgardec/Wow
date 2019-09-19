@@ -5,7 +5,7 @@
 <@c.page>
     <div class="form-row">
         <div class="form-group col-md-6">
-               <form method="get" action="/" class="form-inline">
+               <form method="get" action="/main" class="form-inline">
                 <select class="custom-select col-md-2" name="filter">
                     <option value="0">All</option>
                     <#if tags??><#list tags as m>

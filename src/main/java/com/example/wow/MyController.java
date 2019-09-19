@@ -22,8 +22,8 @@ public class MyController {
     @Autowired
     private TagRepo tagRepo;
 
-    @GetMapping("/")
-    public String main(@RequestParam(required = false, defaultValue = "") Integer filter, Model model) {
+    @GetMapping("/main")
+    public String mainM(@RequestParam(required = false, defaultValue = "") Integer filter, Model model) {
         Iterable<Message> messages;
         if (filter != null && filter != 0) {
             messages = messageRepo.findByTag(tagRepo.findById(filter).get().getTag());
@@ -37,7 +37,7 @@ public class MyController {
         return "main";
     }
 
-    @PostMapping("/")
+    @PostMapping("/main")
     public String add(
             @AuthenticationPrincipal User user,
             @RequestParam String text,
@@ -70,7 +70,7 @@ public class MyController {
             tagRepo.deleteByTag(mes.getTag());}
         }
         messageRepo.deleteById(idx);
-        return "redirect:/";
+        return "redirect:/main";
     }
 
 }

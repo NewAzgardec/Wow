@@ -21,6 +21,6 @@
         <input type="hidden" value="${_csrf.token}" name="_csrf">
         <button type="submit" class="btn mb-3 ml-3" style="background-color: #EEAEB1; border-color: #6c1e2e">Save
         </button>
-        <div><a class="text-my-own-color ml-4" href="/">home</a></div>
+        <div><a class="text-my-own-color ml-4" href="/main">home</a></div>
     </form>
 </@c.page>

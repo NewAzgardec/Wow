@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/">Messages</a>
+                <a class="nav-link" href="/main">Messages</a>
             </li>
             <#if isAdmin>
             <li class="nav-item">

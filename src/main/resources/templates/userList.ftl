@@ -1,7 +1,7 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
-    <a class="text-my-own-color ml-3" href="/">back</a><br>
+    <a class="text-my-own-color ml-3" href="/main">back</a><br>
 
 <table class="table table-hover mt-3">
     <thead>
