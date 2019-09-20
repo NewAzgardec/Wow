@@ -1,4 +1,6 @@
 <#import "parts/common.ftl" as c>
+<#import "login.ftl" as l>
+<#include "parts/security.ftl">
 
 <@c.page>
     <a class="text-my-own-color ml-3" href="/main">back</a><br>
@@ -16,7 +18,7 @@
     <tr>
         <td>${user.username}</td>
         <td><#list user.roles as role>${role}<#sep>, </#list></td>
-        <td><a class="text-my-own-color" href="/user/${user.id}">edit</a> / <a class="text-my-own-color" href="/user/id/${user.id}">delete</a></td>
+        <td><a class="text-my-own-color" href="/user/${user.id}">edit</a><#if user.username!=name> / <a class="text-my-own-color" href="/user/id/${user.id}">delete</a></#if></td>
     </tr>
     </#list>
     </tbody>
