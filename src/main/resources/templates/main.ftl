@@ -18,23 +18,24 @@
         </div>
     </div>
     <div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
+        <div class="form-row mb-3">
                 <form method="post" class="form-inline">
-                    <input required type="text" name="text" class="form-control" placeholder="Enter your message"/>
-                    <input required type="text" name="tag" class="form-control ml-2" placeholder="Tag">
+                    <input required type="text" name="text" class="form-control" placeholder="Enter your message" style="width: 50%"/>
+                    <input required type="text" name="tag" class="form-control ml-2" placeholder="Tag" style="width: 15%">
+                    <input required type="text" name="toWhom" class="form-control ml-2" placeholder="To whom" style="width: 20%">
+
                     <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-                    <button type="submit" class="btn ml-2" style="background-color: #EEAEB1; border-color: #6c1e2e">Add</button>
+                    <button type="submit" class="btn ml-2" style="background-color: #EEAEB1; border-color: #6c1e2e; width: 10%">Add</button>
                 </form>
-            </div>
         </div>
     </div>
     <table class="table table-hover">
         <thead>
         <tr style="background-color: #6c1e2e; color: white">
-            <th class="styleForMessage">Text</th>
-            <th style="width: 20%">Tag</th>
-            <th style="width: 20%">User</th>
+            <th>Text</th>
+            <th style="width: 15%">Tag</th>
+            <th style="width: 15%">User</th>
+            <th style="width: 15%">To whom</th>
             <th style="width: 10%">Options</th>
         </tr>
         </thead>
@@ -44,6 +45,7 @@
                 <td>${m.text}</td>
                 <td>${m.tag}</td>
                 <td>@${m.authorName}</td>
+                <td>@${m.toWhom}</td>
                 <td>
                     <#if isAdmin><a class="text-my-own-color" href="/message/${m.id}">
                             Delete

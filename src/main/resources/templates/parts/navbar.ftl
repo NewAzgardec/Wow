@@ -15,6 +15,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="/main">Messages</a>
             </li>
+            <#if isLogged>
+            <li class="nav-item">
+                <a class="nav-link" href="/tasks">Tasks</a>
+            </li>
+            </#if>
             <#if isAdmin>
             <li class="nav-item">
                 <a class="nav-link" href="/user">Users</a>

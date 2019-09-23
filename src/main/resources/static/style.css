@@ -6,12 +6,11 @@ body{
 .text-my-own-color {
     color: #663300 !important;
 }
-.styleForMessage{
-    width: 50%;
-}
+
 td {
  word-break: break-word;
 }
+
 select [value="0"] {
     background-color:  #EEAEB1;
 }

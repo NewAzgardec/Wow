@@ -12,4 +12,6 @@ public interface MessageRepository extends CrudRepository<Message, Integer> {
 
     List<Message> findByAuthor(User i);
 
+    List<Message> findByToWhom(String i);
+
 }

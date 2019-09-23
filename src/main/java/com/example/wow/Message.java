@@ -15,13 +15,20 @@ public class Message {
     @JoinColumn(name = "user_id")
     private User author;
 
+    private String toWhom;
+
     public Message() {
     }
 
-    public Message(String text, String tag, User user) {
+    public Message(String text, String tag, User user, String toWhom) {
         this.author = user;
         this.text = text;
         this.tag = tag;
+        this.toWhom = toWhom;
+    }
+
+    public String getToWhom() {
+        return toWhom;
     }
 
     public String getAuthorName() {
