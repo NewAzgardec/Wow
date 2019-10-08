@@ -13,11 +13,11 @@
     <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/main">Messages</a>
+                <a class="nav-link" href="/main">All</a>
             </li>
             <#if isLogged>
             <li class="nav-item">
-                <a class="nav-link" href="/tasks">Tasks</a>
+                <a class="nav-link" href="/tasks">Your</a>
             </li>
             </#if>
             <#if isAdmin>

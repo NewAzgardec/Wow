@@ -4,6 +4,7 @@
 
 <@c.page>
     <div class="form-row">
+        <h5 class="text-my-own-color">Tag </h5>
         <div class="form-group col-md-6">
                <form method="get" action="/main" class="form-inline">
                 <select class="custom-select col-md-2" name="filter">
@@ -17,15 +18,46 @@
 
         </div>
     </div>
+
+
+
+
+<#--    <div class="form-row">-->
+<#--        <h5 class="text-my-own-color">Status </h5>-->
+<#--        <div class="form-group col-md-6">-->
+<#--               <form method="get" action="/status" class="form-inline">-->
+<#--                <select class="custom-select col-md-2" name="statusFilter">-->
+<#--                    <option value="0">All</option>-->
+<#--                    <#if status??><#list status as s>-->
+<#--                        <option value="${s.id}">${s.status}</option>-->
+<#--                    </#list></#if>-->
+<#--                </select>-->
+<#--                <button type="submit" class="btn ml-2" style="background-color: #EEAEB1; border-color: #6c1e2e">Search</button>-->
+<#--            </form>-->
+
+<#--        </div>-->
+<#--    </div>-->
+
+
+
+
+
     <div>
         <div class="form-row mb-3">
                 <form method="post" class="form-inline">
                     <input required type="text" name="text" class="form-control" placeholder="Enter your message" style="width: 50%"/>
                     <input required type="text" name="tag" class="form-control ml-2" placeholder="Tag" style="width: 15%">
-                    <input required type="text" name="toWhom" class="form-control ml-2" placeholder="To whom" style="width: 20%">
+<#--                    <input required type="text" name="toWhom" class="form-control ml-2" placeholder="To whom" style="width: 20%">-->
 
-                    <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-                    <button type="submit" class="btn ml-2" style="background-color: #EEAEB1; border-color: #6c1e2e; width: 10%">Add</button>
+                    <form method="post" action="/main" class="form-inline" style="width: 20%">
+                        <select class="custom-select col-md-2" name="userFilter">
+                            <#if users??><#list users as m>
+                                <option value="${m.id}">${m.username}</option>
+                            </#list></#if>
+                        </select>
+                        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+                        <button type="submit" class="btn ml-2" style="background-color: #EEAEB1; border-color: #6c1e2e; width: 10%">Add</button>
+                    </form>
                 </form>
         </div>
     </div>
@@ -36,6 +68,7 @@
             <th style="width: 15%">Tag</th>
             <th style="width: 15%">User</th>
             <th style="width: 15%">To whom</th>
+            <th style="width: 15%">Status</th>
             <th style="width: 10%">Options</th>
         </tr>
         </thead>
@@ -46,6 +79,7 @@
                 <td>${m.tag}</td>
                 <td>@${m.authorName}</td>
                 <td>@${m.toWhom}</td>
+                <td>${m.status}</td>
                 <td>
                     <#if isAdmin><a class="text-my-own-color" href="/message/${m.id}">
                             Delete

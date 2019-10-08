@@ -43,6 +43,25 @@ public class MyController {
 
         return "main";
     }
+
+//    @GetMapping("/status")
+//    public String status(@RequestParam(required = false, defaultValue = "") String statusFilter, Model model) {
+//        Iterable<Message> messages;
+//        Iterable<User> users;
+//        if (statusFilter != null && !statusFilter.equals("")) {
+//            messages = messageRepo.findByStatus(statusFilter);
+//        } else {
+//            messages = messageRepo.findAll();
+//        }
+//        users=userRepo.findAll();
+//        model.addAttribute("tags", tagRepo.findAll());
+//        model.addAttribute("status", Status.values());
+//        model.addAttribute("messages", messages);
+//        model.addAttribute("users", users);
+//
+//        return "main";
+//    }
+
     @GetMapping("/tasks")
     public String tasks(Model model) {
         Iterable<Message> tasks;
@@ -55,12 +74,14 @@ public class MyController {
     }
 
     @PostMapping("/main")
-    public String add(
+    public String add(@RequestParam(defaultValue = "") Integer userFilter,
             @AuthenticationPrincipal User user,
             @RequestParam String text,
-            @RequestParam String tag,  @RequestParam String toWhom, Model model
+            @RequestParam String tag,  Model model
     ) {
-        Message message = new Message(text, tag, user, toWhom);
+        User filter = userRepo.findById((long) (userFilter)).get();
+        Message message = new Message(text, tag, user, filter.getUsername());
+        message.setStatus(Status.InProgress);
         messageRepo.save(message);
 
         List<Tag> t = tagRepo.findByTag(tag);
@@ -73,9 +94,12 @@ public class MyController {
         Iterable<Message> tasks = messageRepo.findByToWhom(currentUserName);
         Iterable<Message> messages = messageRepo.findAll();
         Iterable<Tag> tags = tagRepo.findAll();
+        Iterable<User> users = userRepo.findAll();
         model.addAttribute("messages", messages);
         model.addAttribute("tags", tags);
+        model.addAttribute("status", Status.values());
         model.addAttribute("tasks", tasks);
+        model.addAttribute("users", users);
         return "main";
     }
 
@@ -90,6 +114,20 @@ public class MyController {
         }
         messageRepo.deleteById(idx);
         return "redirect:/main";
+    }
+
+    @Transactional
+    @GetMapping("/tasks/{id}")
+    public String tasksRemoveForm(@PathVariable("id") Integer idx) {
+        Status status = messageRepo.findById(idx).get().getStatus();
+        Message m = messageRepo.findById(idx).get();
+        if(status.equals(Status.InProgress)){
+            m.setStatus(Status.Done);
+        }else{
+            m.setStatus(Status.InProgress);
+        }
+        messageRepo.save(m);
+        return "redirect:/tasks";
     }
 
 }

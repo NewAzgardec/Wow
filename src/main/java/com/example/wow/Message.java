@@ -17,6 +17,8 @@ public class Message {
 
     private String toWhom;
 
+    private Status status;
+
     public Message() {
     }
 
@@ -47,4 +49,11 @@ public class Message {
         return tag;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 }

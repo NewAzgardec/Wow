@@ -7,6 +7,7 @@
     <groupId>com.example</groupId>
     <artifactId>wow</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
 
     <parent>
@@ -38,11 +39,6 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>org.postgresql</groupId>-->
-        <!--            <artifactId>postgresql</artifactId>-->
-        <!--            <scope>runtime</scope>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
@@ -50,6 +46,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax.xml.bind</groupId>
@@ -78,6 +79,7 @@
     </properties>
 
     <build>
+        <finalName>wow-app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
