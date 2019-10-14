@@ -15,14 +15,16 @@ public class Message {
     @JoinColumn(name = "user_id")
     private User author;
 
-    private String toWhom;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "toWhom_id")
+    private User toWhom;
 
     private Status status;
 
     public Message() {
     }
 
-    public Message(String text, String tag, User user, String toWhom) {
+    public Message(String text, String tag, User user, User toWhom) {
         this.author = user;
         this.text = text;
         this.tag = tag;
@@ -30,7 +32,7 @@ public class Message {
     }
 
     public String getToWhom() {
-        return toWhom;
+        return toWhom.getUsername();
     }
 
     public String getAuthorName() {

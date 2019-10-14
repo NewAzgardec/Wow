@@ -4,15 +4,20 @@
 
 <@c.page>
     <div class="form-row">
-        <h5 class="text-my-own-color">Tag </h5>
         <div class="form-group col-md-6">
                <form method="get" action="/main" class="form-inline">
                 <select class="custom-select col-md-2" name="filter">
                     <option value="0">All</option>
                     <#if tags??><#list tags as m>
                         <option value="${m.id}">${m.tag}</option>
-                    </#list></#if>
+                    </#list><#else> </#if>
                 </select>
+                   <select class="custom-select col-md-2" name="userFilter2">
+                       <option value="0">All</option>
+                       <#if users??><#list users as m>
+                           <option value="${m.id}">${m.username}</option>
+                       </#list></#if>
+                   </select>
                 <button type="submit" class="btn ml-2" style="background-color: #EEAEB1; border-color: #6c1e2e">Search</button>
             </form>
 
